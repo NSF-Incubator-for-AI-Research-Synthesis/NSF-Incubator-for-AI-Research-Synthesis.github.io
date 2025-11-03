@@ -3,7 +3,8 @@
 
 Recent advances in artificial intelligence (AI) have promising potential to transform the speed and scale of conducting systematic reviews. Technologies such as large language models (LLMs) can serve as powerful research assistants for helping to automate the mundane, repetitive tasks of synthesizing vast amounts of academic literature. Despite their potential, however, current applications of these technologies vary widely in their accuracy for systematic review tasks (e.g., judging study eligibility, extracting data; [Schmidt et al., 2025](https://f1000research.com/articles/10-401/v3)).
 
-This post details a key ingredient for better harnessing the potential of AI-supported tools for systematic reviews: the clarity of instructions given to LLMs. Just like human assistants, LLMs will not perform well if given vague or ambiguous directions. And just like training human reviewers, creating written protocols of a review’s pre-specified plans should be a cornerstone of providing clear instructions.
+This post details a key ingredient for better harnessing the potential of AI-supported tools for systematic reviews: *the clarity of instructions given to LLMs*. Just like human assistants, LLMs will not perform well if given vague or ambiguous directions. And just like training human reviewers, creating written protocols of a review’s pre-specified plans should be a cornerstone of providing clear instructions.
+
 Traditional protocols written for humans, however, require adaptation for optimal use by AI applications. This post is the first in a three-part series about adapting traditional review protocols to serve as machine-readable inputs for LLMs. This post introduces key guiding considerations, while later posts will apply these takeaways to a previously completed systematic review and detail empirical findings from that case example.
 
 ## Why LLMs Struggle with Traditional Protocols
