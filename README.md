@@ -25,13 +25,20 @@ Addressing this mismatch requires adapting the review protocol. New formats are 
 
 ### 1. Modular Protocol Structure
 
-Traditional protocols typically segment systematic review tasks into distinct stages (e.g., screening, extraction, synthesis). However, these protocols often leave room for human judgement and interpretation at each stage. Relatedly, an AI-ready protocol requires explicit rules that guide the LLMs behavior. For example, a rule that relates to an articles year of publication may have different versions in various stages (screening - study must be published before 1990; data extraction – what is the year of publication). The rules must be unambiguous and tailored to the capabilities and limitations of any LLM to reliably perform the task.
+Traditional protocols typically segment systematic review tasks into distinct stages (e.g., screening, extraction, synthesis). Likewise, AI-ready protocols should be divided into distinct modules with defined content, rule types, and LLM tasks instructions for a specific review stage (e.g., a screening module, a data extraction module).
 
-One key difference between traditional and AI-ready versions lies in the structural rigidity of creating distinct rules for well-defined modules. In our framework, a module consists of defined content, rule types, and LLM task instructions for a synthesis stage (e.g., a screening module, a data extraction module). This structural rigidity minimizes ambiguity and clarifies what the AI needs to check.
-
-Table 1 provides a simplified example. A module can have sub-modules (e.g., study vs. sample characteristics for the screening module), and some rules may be related across modules (e.g., study characteristics for screening vs. data extraction). 
+Explicit rules will guide the LLM’s behavior for each stage. For example, a rule about an article’s year of publication may have different versions in various stages such as screening (study must be published before 1990) and data extraction (extract the year of publication). Table 1 shows a simplified example. 
 
 Table 1: Example of modularized protocol structure
+
+| Module          | Sub-module             | Content Focus            | Example Rule                                      | LLM Task    |
+|-----------------|------------------------|---------------------------|---------------------------------------------------|-------------|
+| Screening       | Study Characteristics  | Metadata, publication     | Study must be published before 1990               | Conditional |
+| Screening       | Sample Characteristics | Population, subgroup      | Sample must have at least 80% PreK–12 students    | Conditional |
+| Data extraction | Study Characteristics  | Metadata, publication     | Extract the year of publication                   | Retrieval   |
+| Data extraction | Sample Characteristics | Population, subgroup      | Extract the grade levels of the sample            | Retrieval   |
+
+Explicitly organizing each review stage into distinct rules with LLM task instructions distinguishes AI-ready protocols from traditional protocols. However, this difference may not always be extreme, depending on the existing structure of the traditional protocol. For instance, data extraction protocols in the [MetaReviewer platform](https://www.metareviewer.org/learn/coding-form-templates/) use an explicit, consistent structure in Google Docs for defining each data field to extract. Adapting for an AI-ready format is easier with that explicit structure already built in for each item.
 
 ### 2. Protocol-to-Prompt Transformation
 
